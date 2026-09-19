@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Viện Thẩm Mỹ & Spa - Phun Môi Mày & Làm Hồng Bi Nhũ Ưu Đãi TikTok</title>
     
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <script>
@@ -16,14 +21,27 @@
             theme: {
                 extend: {
                     colors: {
-                        zalo: { DEFAULT: '#0068FF', hover: '#0055d4', light: '#e6f0ff' },
+                        zalo: {
+                            DEFAULT: '#0068FF',
+                            hover: '#0055d4',
+                            light: '#e6f0ff'
+                        },
                         brand: {
-                            50: '#fdf2f8', 100: '#fce7f3', 200: '#fbcfe8', 300: '#f472b6',
-                            400: '#f43f5e', 500: '#ec4899', 600: '#db2777', 700: '#be185d',
-                            800: '#9d174d', 900: '#831843'
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            300: '#f472b6',
+                            400: '#f43f5e',
+                            500: '#ec4899',
+                            600: '#db2777',
+                            700: '#be185d',
+                            800: '#9d174d',
+                            900: '#831843'
                         }
                     },
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
                     boxShadow: {
                         'soft-pink': '0 10px 30px -8px rgba(236, 72, 153, 0.22)',
                         'glow-zalo': '0 0 25px rgba(0, 104, 255, 0.55)',
@@ -34,19 +52,29 @@
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .zalo-glow { box-shadow: 0 8px 25px -4px rgba(0, 104, 255, 0.55); }
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .zalo-glow {
+            box-shadow: 0 8px 25px -4px rgba(0, 104, 255, 0.55);
+        }
         .shimmer {
             background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0) 100%);
             background-size: 200% 100%;
             animation: shimmer 2.4s infinite;
         }
-        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
         @keyframes pulseGlow {
             0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 104, 255, 0.5); }
             50% { transform: scale(1.02); box-shadow: 0 0 35px rgba(0, 104, 255, 0.85); }
         }
-        .pulse-zalo { animation: pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        .pulse-zalo {
+            animation: pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
         @keyframes subtleShake {
             0%, 100% { transform: rotate(0deg); }
             20% { transform: rotate(-6deg); }
@@ -54,32 +82,39 @@
             60% { transform: rotate(-4deg); }
             80% { transform: rotate(4deg); }
         }
-        .shake-icon { animation: subtleShake 3s ease-in-out infinite; }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .shake-icon {
+            animation: subtleShake 3s ease-in-out infinite;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white pb-20 md:pb-0">
 
-    <!-- Toast Notification -->
+    <!-- Custom Toast Notification System -->
     <div id="toastBox" class="fixed top-5 right-5 z-[9999] transition-all duration-300 transform -translate-y-24 opacity-0 pointer-events-none flex items-center gap-3 bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-2xl border border-slate-700 max-w-sm">
         <div id="toastIcon" class="w-8 h-8 rounded-full flex items-center justify-center bg-brand-500 text-white font-bold shrink-0 text-sm">
             <i class="fa-solid fa-check"></i>
         </div>
         <div>
             <p id="toastTitle" class="text-xs font-bold text-pink-300">THÔNG BÁO</p>
-            <p id="toastMessage" class="text-xs text-slate-200 font-medium">Nội dung...</p>
+            <p id="toastMessage" class="text-xs text-slate-200 font-medium">Nội dung thông báo...</p>
         </div>
     </div>
 
-    <!-- Confirm Dialog Modal -->
+    <!-- Custom Confirmation Modal -->
     <div id="confirmDialogModal" class="fixed inset-0 z-[10000] bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
         <div class="bg-white max-w-sm w-full rounded-2xl p-6 text-center text-slate-800 shadow-2xl border border-slate-100">
             <div class="w-12 h-12 rounded-full bg-pink-100 text-brand-600 flex items-center justify-center mx-auto mb-3 text-lg">
                 <i class="fa-solid fa-circle-exclamation"></i>
             </div>
             <h4 class="font-bold text-base text-slate-900 mb-1">Xác Nhận Hành Động</h4>
-            <p id="confirmDialogText" class="text-xs text-slate-600 mb-5 leading-relaxed">Bạn có chắc chắn muốn tiếp tục?</p>
+            <p id="confirmDialogText" class="text-xs text-slate-600 mb-5 leading-relaxed">Bạn có chắc chắn muốn tiếp tục thao tác này?</p>
             <div class="flex gap-3">
                 <button id="confirmCancelButton" class="w-1/2 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700 transition">Hủy Bỏ</button>
                 <button id="confirmOkButton" class="w-1/2 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-xs font-bold text-white shadow-md transition">Đồng Ý</button>
@@ -105,10 +140,11 @@
     </div>
 
     <!-- ========================================================================= -->
-    <!-- 1. PUBLIC CLIENT LANDING PAGE                                             -->
+    <!-- 1. PUBLIC CLIENT LANDING & BIO PAGE (TIKTOK ADS OPTIMIZED CONVERSION)     -->
     <!-- ========================================================================= -->
     <div id="publicAppView" class="min-h-screen flex flex-col">
         
+        <!-- Top Announcement Ticker Bar -->
         <div class="bg-gradient-to-r from-brand-700 via-brand-600 to-pink-500 text-white py-2 px-3 relative overflow-hidden text-center text-xs font-semibold shadow-sm">
             <div class="max-w-6xl mx-auto flex items-center justify-center gap-2">
                 <span class="inline-flex h-2 w-2 rounded-full bg-yellow-300 animate-ping"></span>
@@ -116,8 +152,11 @@
             </div>
         </div>
 
+        <!-- Header Navbar -->
         <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-pink-100 shadow-sm transition-all duration-300">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+                
+                <!-- Logo & Brand Name -->
                 <a href="#hero" class="flex items-center space-x-3 group">
                     <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-brand-600 to-pink-400 flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform duration-300">
                         <span id="brandLogoInitial">SP</span>
@@ -128,6 +167,7 @@
                     </div>
                 </a>
 
+                <!-- Desktop Nav Navigation -->
                 <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
                     <a href="#hero" class="hover:text-brand-600 transition-colors">Giới thiệu</a>
                     <a href="#services" class="hover:text-brand-600 transition-colors">Dịch vụ Spa</a>
@@ -137,6 +177,7 @@
                     <a href="#reviews" class="hover:text-brand-600 transition-colors">Đánh giá</a>
                 </nav>
 
+                <!-- Top Zalo CTA Button -->
                 <a href="#" class="zalo-link hidden sm:inline-flex items-center justify-center bg-zalo hover:bg-zalo-hover text-white font-bold px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md shadow-blue-500/25 active:scale-95 group">
                     <i class="fa-solid fa-comment-dots mr-2 text-base group-hover:rotate-12 transition-transform"></i>
                     <span>Tư Vấn Zalo</span>
@@ -148,7 +189,9 @@
         <section id="hero" class="relative overflow-hidden bg-gradient-to-b from-brand-50/80 via-white to-slate-50 pt-8 pb-12 sm:pt-14 sm:pb-20">
             <div class="max-w-6xl mx-auto px-4 sm:px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                    
                     <div class="lg:col-span-6 order-2 lg:order-1 text-center lg:text-left">
+                        
                         <div class="inline-flex items-center space-x-2 bg-pink-100/90 border border-pink-200 text-brand-700 text-xs font-bold px-3.5 py-1.5 rounded-full mb-4">
                             <span class="flex h-2 w-2 rounded-full bg-brand-600 animate-ping"></span>
                             <i class="fa-brands fa-tiktok text-sm"></i>
@@ -161,9 +204,10 @@
                         </h2>
 
                         <p id="heroCaptionDisplay" class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0 font-normal">
-                            Bóc tách sạch nền môi thâm, điêu khắc sợi mày tự nhiên từng sợi và làm hồng bi nhũ hoa bảo mật phòng VIP 1:1. Không sưng đau, chuẩn y khoa!
+                            Bóc tách sạch nền môi thâm, điêu khắc sợi mày tự nhiên từng sợi và làm hồng bi nhũ hoa bảo mật phòng VIP 1:1. Không sưng đau, chuẩn y khoa, giúp chị em tự tin tỏa sáng rạng ngời!
                         </p>
 
+                        <!-- Price Comparison Box -->
                         <div class="bg-gradient-to-r from-pink-50 to-pink-100/60 p-4 sm:p-5 rounded-2xl border border-pink-200 mb-6 max-w-md mx-auto lg:mx-0 shadow-soft-pink">
                             <div class="flex items-center justify-between">
                                 <div>
@@ -183,6 +227,7 @@
                             </div>
                         </div>
 
+                        <!-- MAIN CTA ZALO CONVERSION BUTTON -->
                         <div class="space-y-3 max-w-md mx-auto lg:mx-0">
                             <a href="#" class="zalo-link pulse-zalo group relative w-full inline-flex items-center justify-center bg-zalo hover:bg-zalo-hover text-white font-extrabold text-base sm:text-lg px-6 sm:px-8 py-4 rounded-2xl shadow-glow-zalo transition-all transform active:scale-95 overflow-hidden">
                                 <div class="shimmer absolute inset-0"></div>
@@ -190,7 +235,14 @@
                                 <span id="heroCtaText">CHAT ZALO NHẬN ƯU ĐÃI & TƯ VẤN</span>
                                 <i class="fa-solid fa-arrow-right ml-3 text-sm opacity-80 group-hover:translate-x-1 transition-transform"></i>
                             </a>
+
+                            <p class="text-xs text-slate-500 text-center flex items-center justify-center space-x-3">
+                                <span class="flex items-center"><i class="fa-solid fa-shield-halved text-emerald-500 mr-1"></i> Bảo mật 100%</span>
+                                <span class="flex items-center"><i class="fa-solid fa-user-doctor text-brand-600 mr-1"></i> Bác sĩ nữ thực hiện</span>
+                                <span class="flex items-center"><i class="fa-solid fa-certificate text-amber-500 mr-1"></i> Mực Organic</span>
+                            </p>
                         </div>
+
                     </div>
 
                     <div class="lg:col-span-6 order-1 lg:order-2">
@@ -199,156 +251,652 @@
                             <div class="relative bg-white p-3 rounded-3xl shadow-xl border border-pink-100">
                                 <img id="heroImgDisplay" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80" 
                                      alt="Dịch vụ thẩm mỹ Spa" 
-                                     class="w-full h-80 sm:h-96 lg:h-[420px] object-cover rounded-2xl shadow-inner">
+                                     class="w-full h-80 sm:h-96 lg:h-[420px] object-cover rounded-2xl shadow-inner"
+                                     onerror="this.src='https://placehold.co/800x600/fce7f3/db2777?text=Spa+Beauty'">
+                                
+                                <div class="absolute top-6 right-6 bg-brand-600 text-white font-black text-xs sm:text-sm px-4 py-2 rounded-full shadow-lg transform rotate-2 flex items-center space-x-1.5">
+                                    <i class="fa-solid fa-fire text-yellow-300"></i>
+                                    <span>ĐỘC QUYỀN TIKTOK</span>
+                                </div>
+
+                                <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-3 rounded-2xl border border-pink-100 shadow-lg flex items-center justify-between">
+                                    <div class="flex items-center space-x-2.5">
+                                        <div class="w-8 h-8 rounded-xl bg-pink-100 text-brand-600 flex items-center justify-center font-bold text-xs">
+                                            <i class="fa-solid fa-lock"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs font-bold text-slate-800">Làm Hồng Bi Nhũ Riêng Tư 1:1</p>
+                                            <p class="text-[10px] text-slate-500">Phòng VIP vô trùng • Bác sĩ nữ đảm nhiệm</p>
+                                        </div>
+                                    </div>
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded-full">An Toàn</span>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- SERVICES SECTION -->
+        <!-- COUNTDOWN URGENCY OFFER SECTION -->
+        <section id="offer" class="bg-slate-900 text-white py-8 relative overflow-hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <span class="inline-block text-brand-400 font-bold text-xs uppercase tracking-widest mb-1.5">
+                        <i class="fa-solid fa-fire text-amber-400 mr-1"></i> Số Lượng Có Hạn Cho Khách Lướt TikTok
+                    </span>
+                    <h3 id="countdownTitle" class="text-xl sm:text-2xl font-bold mb-4">Chương Trình Giảm 50% & Voucher 500K Sắp Kết Thúc!</h3>
+                    
+                    <div class="flex justify-center items-center space-x-3 sm:space-x-4 mb-6">
+                        <div class="bg-slate-800 border border-slate-700 rounded-xl p-2.5 sm:p-3 min-w-[65px] sm:min-w-[75px]">
+                            <span id="timerHours" class="text-2xl sm:text-3xl font-black text-brand-400">03</span>
+                            <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Giờ</span>
+                        </div>
+                        <span class="text-xl font-bold text-slate-600">:</span>
+                        <div class="bg-slate-800 border border-slate-700 rounded-xl p-2.5 sm:p-3 min-w-[65px] sm:min-w-[75px]">
+                            <span id="timerMinutes" class="text-2xl sm:text-3xl font-black text-brand-400">45</span>
+                            <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Phút</span>
+                        </div>
+                        <span class="text-xl font-bold text-slate-600">:</span>
+                        <div class="bg-slate-800 border border-slate-700 rounded-xl p-2.5 sm:p-3 min-w-[65px] sm:min-w-[75px]">
+                            <span id="timerSeconds" class="text-2xl sm:text-3xl font-black text-brand-400">20</span>
+                            <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Giây</span>
+                        </div>
+                    </div>
+
+                    <a href="#" class="zalo-link inline-flex items-center bg-gradient-to-r from-brand-600 to-pink-500 hover:from-brand-700 hover:to-pink-600 text-white font-extrabold px-6 py-3 rounded-xl text-sm transition-all shadow-lg active:scale-95">
+                        <i class="fa-solid fa-gift mr-2"></i>
+                        <span>Giữ Suất Ưu Đãi 50% Trực Tiếp Qua Zalo</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CORE SERVICES SECTION -->
         <section id="services" class="py-16 bg-white">
             <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                
                 <div class="text-center max-w-2xl mx-auto mb-12">
                     <span class="text-brand-600 text-xs font-bold uppercase tracking-wider bg-pink-50 px-3 py-1 rounded-full border border-pink-100">
                         Chuyên Môn Đỉnh Cao Chuẩn Y Khoa
                     </span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-2 mb-3">
+                    <h2 id="servicesTitleDisplay" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-2 mb-3">
                         3 Dịch Vụ Spa Đang Gây Bão TikTok
                     </h2>
+                    <p id="servicesSubTitleDisplay" class="text-slate-500 text-sm sm:text-base">
+                        Khử sạch thâm môi, điêu khắc mày tài lộc và tái sinh nhũ hoa tươi hồng tự nhiên
+                    </p>
                 </div>
-                <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+
+                <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Javascript populates dynamic cards here -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- REAL RESULTS BEFORE/AFTER SECTION -->
+        <section id="results" class="py-16 bg-slate-50 border-t border-slate-200/80">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+                    <div>
+                        <span class="text-brand-600 font-bold text-xs uppercase tracking-wider block mb-1">
+                            <i class="fa-solid fa-circle-check"></i> Ảnh Thực Tế Sau 7-14 Ngày
+                        </span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                            Kết Quả Thực Tế Từ Khách Hàng
+                        </h3>
+                    </div>
+                    <p class="text-xs text-slate-500 max-w-sm">
+                        Cam kết 100% hình ảnh nguyên bản sau bong vảy, không qua chỉnh sửa bóp méo hay dùng hiệu ứng ảo.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-2xl overflow-hidden border border-pink-100 shadow-sm hover:shadow-md transition-all">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1588510970672-f2f94e02209e?auto=format&fit=crop&w=600&q=80" alt="Môi sau bong" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/fce7f3/db2777?text=Phun+Moi'">
+                            <span class="absolute top-3 left-3 bg-brand-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Sau 7 Ngày Bong</span>
+                            <span class="absolute bottom-3 right-3 bg-white/95 text-slate-800 text-[10px] font-bold px-2 py-0.5 rounded-md">Hồng Đào Baby</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-bold text-slate-900 text-sm">Khử Thâm Nền + Phun Môi Collagen</h4>
+                            <p class="text-xs text-slate-500 mt-1">Môi thâm xỉn do son chì được bóc tách hoàn toàn, môi bóng mịn không nứt nẻ.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl overflow-hidden border border-pink-100 shadow-sm hover:shadow-md transition-all">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Điêu khắc mày" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/fce7f3/db2777?text=Dieu+Khac+May'">
+                            <span class="absolute top-3 left-3 bg-brand-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Sợi 12D Siêu Thực</span>
+                            <span class="absolute bottom-3 right-3 bg-white/95 text-slate-800 text-[10px] font-bold px-2 py-0.5 rounded-md">Tiệp Lông Thật</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-bold text-slate-900 text-sm">Điêu Khắc Hairstrokes Khí Chất</h4>
+                            <p class="text-xs text-slate-500 mt-1">Dáng mày phong thủy cân đối cung tài lộc, sợi bay tơ tự nhiên không bị thô cứng.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl overflow-hidden border border-pink-100 shadow-sm hover:shadow-md transition-all">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1512290900672-1f5be673b063?auto=format&fit=crop&w=600&q=80" alt="Làm hồng bi nhũ" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/fce7f3/db2777?text=Lam+Hong+Bi+Nhu'">
+                            <span class="absolute top-3 left-3 bg-slate-900/90 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Bảo Mật Phòng VIP</span>
+                            <span class="absolute bottom-3 right-3 bg-brand-100 text-brand-700 text-[10px] font-bold px-2 py-0.5 rounded-md">1 Buổi Hiệu Quả</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-bold text-slate-900 text-sm">Làm Hồng Bi Nhũ Hoa Laser Bio-Pink</h4>
+                            <p class="text-xs text-slate-500 mt-1">Loại bỏ sắc tố melanin sậm màu sau sinh nở, tái tạo sắc hồng thiếu nữ kín đáo.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <!-- BIO LINKS SECTION -->
-        <section id="biolinks" class="py-16 bg-slate-50 border-t border-slate-200/80">
+        <section id="biolinks" class="py-16 bg-white border-t border-slate-200/80">
             <div class="max-w-2xl mx-auto px-4">
                 <div class="text-center mb-8">
+                    <div class="relative w-20 h-20 mx-auto mb-3">
+                        <img id="bioAvatarDisplay" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" 
+                             class="w-full h-full object-cover rounded-full border-4 border-white shadow-md ring-2 ring-brand-500" alt="Master Spa">
+                        <div class="absolute bottom-0 right-0 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full"></div>
+                    </div>
                     <h3 id="bioNameDisplay" class="text-xl font-bold text-slate-900">Master Hoàng Yến • Chuyên Khoa Thẩm Mỹ</h3>
                     <p id="bioDescDisplay" class="text-slate-500 text-xs sm:text-sm mt-1">Kênh tư vấn riêng tư & giữ suất ưu đãi 50% qua Zalo Official</p>
                 </div>
-                <div id="bioLinksContainer" class="space-y-3"></div>
+
+                <div id="bioLinksContainer" class="space-y-3">
+                    <!-- Javascript populates bio buttons here -->
+                </div>
             </div>
         </section>
 
-        <!-- FOOTER -->
+        <!-- CUSTOMER REVIEWS SECTION -->
+        <section id="reviews" class="py-16 bg-slate-50 border-t border-slate-200/80">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-amber-500 text-sm font-bold tracking-wider uppercase mb-1 block">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> Đánh Giá 5 Sao
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Khách Hàng TikTok Nói Gì Về Chúng Tôi</h2>
+                </div>
+                <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+            </div>
+        </section>
+
+        <!-- FORM NHẬN VOUCHER -->
+        <section class="py-16 bg-gradient-to-br from-brand-600 to-pink-500 text-white relative overflow-hidden" id="voucherSection">
+            <div class="max-w-xl mx-auto px-4">
+                <div class="bg-white text-slate-800 p-6 sm:p-8 rounded-3xl shadow-2xl border border-pink-200">
+                    <div class="text-center mb-6">
+                        <span class="inline-block text-[11px] font-extrabold uppercase tracking-wider text-brand-600 bg-pink-100 px-3 py-1 rounded-full mb-2">
+                            TẶNG THÊM VOUCHER 500.000Đ HÔM NAY
+                        </span>
+                        <h4 class="font-extrabold text-2xl text-slate-900">Đăng Ký Nhận Bảng Giá Ưu Đãi Mật</h4>
+                        <p class="text-xs text-slate-500 mt-1">Thông tin được bảo mật 100% - Hệ thống sẽ tự động mở Zalo Bác Sĩ sau khi gửi</p>
+                    </div>
+
+                    <form onsubmit="handleLeadSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Họ và Tên Quý Khách</label>
+                            <input type="text" id="leadName" required placeholder="Ví dụ: Chị Phương Thảo" 
+                                   class="w-full px-3.5 py-3 text-xs rounded-xl border border-slate-300 text-slate-800 placeholder-slate-400 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 outline-none transition">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Số Điện Thoại Zalo <span class="text-rose-500">*</span></label>
+                            <input type="tel" id="leadPhone" required pattern="[0-9]{9,11}" placeholder="Ví dụ: 0987654321" 
+                                   class="w-full px-3.5 py-3 text-xs rounded-xl border border-slate-300 text-slate-800 placeholder-slate-400 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 outline-none transition">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Dịch Vụ Cần Tư Vấn Riêng Tư</label>
+                            <select id="leadService" class="w-full px-3.5 py-3 text-xs rounded-xl border border-slate-300 text-slate-800 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 outline-none transition">
+                                <option value="Phun Môi Collagen Nano Khử Thâm Phủ Bóng">Phun Môi Collagen Nano Khử Thâm Phủ Bóng (Voucher 50%)</option>
+                                <option value="Điêu Khắc Mày Hairstrokes Sợi Siêu Thực 12D">Điêu Khắc Mày Hairstrokes Sợi Siêu Thực 12D (Voucher 50%)</option>
+                                <option value="Trẻ Hóa Làm Hồng Bi Nhũ Hoa Laser Bio-Pink">Trẻ Hóa Làm Hồng Bi Nhũ Hoa Laser Bio-Pink (Kín Đáo 100%)</option>
+                                <option value="Combo Nhan Sắc (Môi + Mày + Làm Hồng Bi Nhũ)">Combo Nhan Sắc Hoàn Hảo (Môi + Mày + Bi Nhũ Hoa)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="w-full bg-zalo hover:bg-zalo-hover text-white font-extrabold text-sm py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 group active:scale-95">
+                            <i class="fa-solid fa-comment-dots text-base"></i>
+                            <span>GỬI & MỞ CHAT ZALO VỚI BÁC SĨ</span>
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition"></i>
+                        </button>
+
+                        <p class="text-center text-[11px] text-slate-400 mt-2 flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-lock text-emerald-500"></i>
+                            Tuyệt đối không tiết lộ số điện thoại cho bên thứ ba
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLIC FOOTER -->
         <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-xs">
             <div class="max-w-6xl mx-auto px-4 sm:px-6">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
-                    <div class="md:col-span-6">
-                        <span id="footerBrandName" class="text-white font-bold text-lg">SIMPLE BEAUTY SPA</span>
-                        <p id="footerDesc" class="text-sm text-slate-400 mt-2 max-w-sm">Chuyên cung cấp giải pháp làm đẹp chuẩn y khoa.</p>
+                    
+                    <div class="md:col-span-5">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-pink-400 flex items-center justify-center text-white font-bold text-base">
+                                <span id="footerLogoInitial">SP</span>
+                            </div>
+                            <span id="footerBrandName" class="text-white font-bold text-lg">SIMPLE BEAUTY SPA</span>
+                        </div>
+                        <p id="footerDesc" class="text-sm text-slate-400 mb-4 max-w-sm leading-relaxed">
+                            Viện thẩm mỹ chuyên sâu phun môi phủ bóng collagen, điêu khắc chân mày và làm hồng bi nhũ chuẩn y khoa quốc tế.
+                        </p>
+                        <p class="text-[11px] text-brand-400 font-medium">
+                            <i class="fa-solid fa-award mr-1"></i> Đảm bảo phòng riêng vô trùng & bảo mật 100%
+                        </p>
                     </div>
-                    <div class="md:col-span-6 text-right">
-                        <p>Hotline: <span id="footerPhone" class="text-white font-bold">0987.654.321</span></p>
-                        <p class="mt-1">Zalo: <span id="footerZaloNumber" class="text-pink-400 font-bold">0987.654.321</span></p>
+
+                    <div class="md:col-span-4">
+                        <h4 class="text-white font-semibold text-sm mb-3 uppercase tracking-wider">Thông Tin Liên Hệ</h4>
+                        <ul class="space-y-2.5 text-xs text-slate-300">
+                            <li class="flex items-center"><i class="fa-solid fa-phone text-brand-500 mr-2.5 w-4"></i> Hotline: <span id="footerPhone" class="ml-1 font-bold text-white">0987.654.321</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-comments text-zalo mr-2.5 w-4"></i> Zalo Tư Vấn: <span id="footerZaloNumber" class="ml-1 text-slate-200">0987.654.321</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-location-dot text-brand-500 mr-2.5 w-4 mt-0.5"></i> <span id="footerAddress">123 Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh</span></li>
+                        </ul>
                     </div>
+
+                    <div class="md:col-span-3">
+                        <h4 class="text-white font-semibold text-sm mb-3 uppercase tracking-wider">Tư Vấn Nhanh</h4>
+                        <p class="text-xs text-slate-400 mb-3">Bác sĩ trực Zalo 24/7. Nhấp để nhận ngay bảng giá mật không cần kết bạn trước:</p>
+                        <a href="#" class="zalo-link w-full inline-flex items-center justify-center bg-zalo hover:bg-zalo-hover text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-md">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> Mở Chat Zalo Ngay
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+                    <p>© 2026 <span id="footerCopyName">Simple Beauty Spa</span>. Tối ưu phễu chuyển đổi từ TikTok Ads sang Zalo.</p>
                 </div>
             </div>
         </footer>
 
+        <!-- MOBILE STICKY BOTTOM BAR -->
+        <div class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-t border-pink-200/80 shadow-[0_-5px_15px_rgba(0,0,0,0.06)] py-2.5 px-4">
+            <div class="flex items-center justify-between gap-3">
+                <div class="flex items-center gap-2.5">
+                    <div class="relative shrink-0">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80" alt="Bác sĩ Spa" class="w-10 h-10 rounded-full object-cover border-2 border-brand-500">
+                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
+                    </div>
+                    <div class="leading-tight">
+                        <p class="text-xs font-bold text-slate-900 flex items-center gap-1">
+                            Bác Sĩ Spa Trực Tuyến <i class="fa-solid fa-circle-check text-brand-600 text-[10px]"></i>
+                        </p>
+                        <p class="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Đang online Zalo
+                        </p>
+                    </div>
+                </div>
+
+                <a href="#" class="zalo-link bg-zalo hover:bg-zalo-hover text-white font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-glow-zalo flex items-center gap-1.5 pulse-zalo shrink-0">
+                    <i class="fa-solid fa-comment-dots text-sm"></i>
+                    <span>CHAT ZALO NGAY</span>
+                </a>
+            </div>
+        </div>
+
         <!-- FLOATING ZALO WIDGET -->
-        <div class="fixed bottom-6 right-5 z-40 flex flex-col items-end">
-            <a href="#" class="zalo-link flex items-center justify-center w-14 h-14 bg-zalo rounded-full shadow-2xl zalo-glow hover:scale-110 active:scale-95 transition-all">
-                <i class="fa-solid fa-comment-dots text-white text-2xl shake-icon"></i>
+        <div class="fixed bottom-20 md:bottom-6 right-5 z-40 flex flex-col items-end space-y-2">
+            <div class="hidden sm:flex bg-white text-slate-800 text-xs font-bold px-3 py-1.5 rounded-xl shadow-xl border border-pink-200 items-center space-x-2 animate-bounce">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                <span>Ưu đãi 50% - Chat Zalo ngay!</span>
+            </div>
+
+            <a href="#" class="zalo-link group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-zalo rounded-full shadow-2xl zalo-glow transition-transform transform hover:scale-110 active:scale-95">
+                <span class="absolute -top-1 -right-1 flex h-4 w-4">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-4 w-4 bg-red-500 text-[9px] text-white font-extrabold items-center justify-center">1</span>
+                </span>
+                <i class="fa-solid fa-comment-dots text-white text-2xl sm:text-3xl shake-icon"></i>
             </a>
         </div>
+
     </div>
 
     <!-- ========================================================================= -->
-    <!-- 2. SECURE ADMIN LOGIN SCREEN (Link #/admin)                               -->
+    <!-- 2. SECURE ADMIN LOGIN SCREEN (Truy cập bằng link #/admin)                  -->
     <!-- ========================================================================= -->
     <div id="adminLoginView" class="min-h-screen bg-slate-900 text-slate-100 flex items-center justify-center p-4 hidden">
         <div class="w-full max-w-md bg-slate-800 rounded-3xl p-7 border border-slate-700 shadow-2xl text-center">
+            
             <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 to-pink-500 flex items-center justify-center mx-auto mb-4 text-white shadow-lg text-2xl">
                 <i class="fa-solid fa-lock"></i>
             </div>
+
             <h3 class="font-bold text-2xl text-white">Quản Trị Viên Spa</h3>
-            <p class="text-xs text-slate-400 mt-1 mb-6">Đăng nhập để điều chỉnh số Zalo và đồng bộ dữ liệu lên GitHub</p>
+            <p class="text-xs text-slate-400 mt-1 mb-6">Đăng nhập để điều chỉnh số Zalo, nội dung ưu đãi & đồng bộ trực tiếp lên GitHub</p>
 
             <form onsubmit="handleAdminLogin(event)" class="space-y-4 text-left">
                 <div>
                     <label class="block text-xs font-semibold text-slate-300 mb-1.5">Mật Khẩu Quản Trị</label>
-                    <input type="password" id="adminPasswordInput" required placeholder="Nhập mật khẩu (Mặc định: admin123)" 
-                           class="w-full px-4 py-3 text-xs rounded-xl bg-slate-900 border border-slate-700 text-white focus:border-brand-500 outline-none">
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                            <i class="fa-solid fa-key text-xs"></i>
+                        </span>
+                        <input type="password" id="adminPasswordInput" required placeholder="Nhập mật khẩu (Mặc định: admin123)" 
+                               class="w-full pl-10 pr-10 py-3 text-xs rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:border-brand-500 outline-none">
+                        <button type="button" onclick="togglePasswordVisibility('adminPasswordInput')" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-white">
+                            <i class="fa-solid fa-eye text-xs"></i>
+                        </button>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-1.5">Mật khẩu mặc định: <code class="text-pink-400 font-mono bg-slate-900 px-1.5 py-0.5 rounded">admin123</code></p>
                 </div>
-                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-xs py-3.5 rounded-xl shadow-lg transition">
-                    ĐĂNG NHẬP HỆ THỐNG
+
+                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-xs py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>ĐĂNG NHẬP HỆ THỐNG</span>
                 </button>
+
+                <a href="#/" class="block text-center text-xs text-slate-400 hover:text-pink-400 underline pt-2">
+                    ← Quay lại xem Website Khách Hàng
+                </a>
             </form>
+
         </div>
     </div>
 
     <!-- ========================================================================= -->
-    <!-- 3. SAAS ADMIN DASHBOARD PORTAL                                            -->
+    <!-- 3. FULL SAAS ADMIN DASHBOARD PORTAL (ĐƯỜNG DẪN RIÊNG BIỆT #/admin)        -->
     <!-- ========================================================================= -->
     <div id="adminDashboardView" class="min-h-screen bg-slate-900 text-slate-100 p-4 sm:p-8 hidden">
         <div class="max-w-6xl mx-auto space-y-6">
             
+            <!-- Admin Top Bar Header -->
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-800">
-                <div>
-                    <h2 class="font-bold text-xl text-white flex items-center gap-2">
-                        Bảng Quản Trị Website 
-                        <span class="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-500/30">Trực Tiếp</span>
-                    </h2>
-                    <p class="text-xs text-slate-400">Tùy chỉnh số Zalo chuyển đổi, giá ưu đãi & đồng bộ trực tiếp lên GitHub</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 to-pink-500 flex items-center justify-center text-white font-bold text-lg shadow-md">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h2 class="font-bold text-xl text-white">Bảng Quản Trị Website</h2>
+                            <span class="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-500/30">Trực Tiếp</span>
+                        </div>
+                        <p class="text-xs text-slate-400">Tùy chỉnh số Zalo chuyển đổi, giá ưu đãi, dịch vụ & đồng bộ trực tiếp lên GitHub Pages</p>
+                    </div>
                 </div>
+
                 <div class="flex items-center gap-2.5">
-                    <button onclick="handleAdminLogout()" class="bg-rose-900/40 hover:bg-rose-800 text-rose-300 text-xs font-semibold px-3.5 py-2 rounded-xl border border-rose-500/30 transition">
-                        Đăng Xuất
+                    <a href="#/" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3.5 py-2.5 rounded-xl border border-slate-700 flex items-center gap-1.5 transition">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>Xem Trang Khách</span>
+                    </a>
+                    <button onclick="handleAdminLogout()" class="bg-rose-900/40 hover:bg-rose-800 text-rose-300 text-xs font-semibold px-3.5 py-2.5 rounded-xl border border-rose-500/30 flex items-center gap-1.5 transition">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Đăng Xuất</span>
                     </button>
                 </div>
             </div>
 
-            <!-- Tab Navigation -->
+            <!-- Tab Navigation (ĐÃ BỔ SUNG TAB 7 GITHUB) -->
             <div class="flex border-b border-slate-800 gap-2 overflow-x-auto no-scrollbar">
-                <button onclick="switchAdminTab('general')" id="tabBtn-general" class="admin-tab-btn py-3 px-4 text-xs font-bold border-b-2 border-brand-500 text-pink-400">1. Cấu Hình Zalo & Spa</button>
-                <button onclick="switchAdminTab('hero')" id="tabBtn-hero" class="admin-tab-btn py-3 px-4 text-xs font-bold border-b-2 border-transparent text-slate-400">2. Banner & Giá Ưu Đãi</button>
-                <button onclick="switchAdminTab('services')" id="tabBtn-services" class="admin-tab-btn py-3 px-4 text-xs font-bold border-b-2 border-transparent text-slate-400">3. Quản Lý Dịch Vụ</button>
-                <button onclick="switchAdminTab('github')" id="tabBtn-github" class="admin-tab-btn py-3 px-4 text-xs font-bold border-b-2 border-transparent text-emerald-400 bg-emerald-950/30 rounded-t-xl">
-                    <i class="fa-brands fa-github mr-1"></i> 7. Đồng Bộ GitHub (API)
+                <button onclick="switchAdminTab('general')" id="tabBtn-general" class="admin-tab-btn py-3 px-4 text-xs font-bold border-b-2 border-brand-500 text-pink-400 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-link"></i>
+                    <span>1. Cấu Hình Zalo & Spa</span>
+                </button>
+                <button onclick="switchAdminTab('hero')" id="tabBtn-hero" class="admin-tab-btn py-3 px-4 text-xs font-bold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-image"></i>
+                    <span>2. Banner & Ưu Đãi Hero</span>
+                </button>
+                <button onclick="switchAdminTab('services')" id="tabBtn-services" class="admin-tab-btn py-3 px-4 text-xs font-bold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-spa"></i>
+                    <span>3. Quản Lý Dịch Vụ</span>
+                </button>
+                <button onclick="switchAdminTab('biolinks')" id="tabBtn-biolinks" class="admin-tab-btn py-3 px-4 text-xs font-bold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <span>4. Quản Lý Bio Links</span>
+                </button>
+                <button onclick="switchAdminTab('leads')" id="tabBtn-leads" class="admin-tab-btn py-3 px-4 text-xs font-bold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-users"></i>
+                    <span>5. Khách Hàng (Leads CRM)</span>
+                    <span id="leadsCounterBadge" class="bg-brand-600 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full">0</span>
+                </button>
+                <button onclick="switchAdminTab('security')" id="tabBtn-security" class="admin-tab-btn py-3 px-4 text-xs font-bold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>6. Đổi Mật Khẩu</span>
+                </button>
+                <button onclick="switchAdminTab('github')" id="tabBtn-github" class="admin-tab-btn py-3 px-4 text-xs font-bold border-b-2 border-transparent text-emerald-400 hover:text-emerald-300 bg-emerald-950/30 rounded-t-xl flex items-center gap-2 whitespace-nowrap">
+                    <i class="fa-brands fa-github"></i>
+                    <span>7. Đồng Bộ GitHub (API)</span>
                 </button>
             </div>
 
-            <!-- TAB 1: CẤU HÌNH ZALO -->
+            <!-- TAB 1: CẤU HÌNH ZALO & SPA -->
             <div id="tabContent-general" class="admin-tab-pane space-y-6">
-                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-xl space-y-4">
-                    <h4 class="text-sm font-bold text-blue-400">Số Điện Thoại Zalo Nhận Khách</h4>
-                    <div>
-                        <label class="block text-xs text-slate-300 mb-1">Số Zalo hoặc Đường Dẫn:</label>
-                        <input type="text" id="adminZaloPhone" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs">
+                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-xl space-y-5">
+                    <div class="border-b border-slate-700 pb-3">
+                        <h4 class="text-sm font-bold text-white flex items-center gap-2 text-blue-400">
+                            <i class="fa-solid fa-bolt"></i> Cấu Hình Số Zalo Nhận Chuyển Đổi (Quan trọng nhất)
+                        </h4>
+                        <p class="text-xs text-slate-400 mt-1">Khi bạn đổi số điện thoại Zalo hoặc link ở đây, TẤT CẢ các nút Zalo trên web sẽ tự động đổi sang số mới.</p>
                     </div>
-                    <div>
-                        <label class="block text-xs text-slate-300 mb-1">Tên Thương Hiệu Spa:</label>
-                        <input type="text" id="adminBrandName" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Số Điện Thoại Zalo Hoặc Link Zalo</label>
+                            <input type="text" id="adminZaloPhone" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                            <p class="text-[11px] text-slate-400 mt-1">Đường dẫn thực tế: <span id="adminRealZaloLink" class="text-blue-400 font-mono">https://zalo.me/...</span></p>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Tin Nhắn Mẫu Khi Khách Mở Zalo</label>
+                            <input type="text" id="adminZaloMsg" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                        </div>
                     </div>
-                    <button onclick="saveGeneralSettings()" class="bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs px-6 py-2.5 rounded-xl">Lưu Tạm Cấu Hình</button>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Tên Thương Hiệu Spa</label>
+                            <input type="text" id="adminBrandName" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Slogan Ngắn</label>
+                            <input type="text" id="adminTagline" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Hotline Tư Vấn</label>
+                            <input type="text" id="adminHotline" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Địa Chỉ Spa</label>
+                            <input type="text" id="adminAddress" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end pt-3">
+                        <button onclick="saveGeneralSettings()" class="bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs px-6 py-2.5 rounded-xl shadow-md transition flex items-center gap-2">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <span>Lưu Tạm Cấu Hình</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <!-- TAB 2: HERO -->
+            <!-- TAB 2: BANNER & HERO SECTION -->
             <div id="tabContent-hero" class="admin-tab-pane hidden space-y-6">
-                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-xl space-y-4">
-                    <div>
-                        <label class="block text-xs text-slate-300 mb-1">Giá Ưu Đãi Hero:</label>
-                        <input type="text" id="adminHeroNewPrice" class="w-full bg-slate-900 border border-slate-700 text-pink-400 font-bold rounded-xl px-3.5 py-2.5 text-xs">
+                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-xl space-y-5">
+                    <div class="border-b border-slate-700 pb-3">
+                        <h4 class="text-sm font-bold text-white flex items-center gap-2 text-pink-400">
+                            <i class="fa-solid fa-image"></i> Tùy Chỉnh Hero Section & Khuyến Mãi TikTok
+                        </h4>
+                        <p class="text-xs text-slate-400 mt-1">Chỉnh sửa tiêu đề, mô tả, mức giá giảm và hình ảnh hiển thị.</p>
                     </div>
+
                     <div>
-                        <label class="block text-xs text-slate-300 mb-1">Giá Cũ (Niêm yết):</label>
-                        <input type="text" id="adminHeroOldPrice" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs">
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Thanh Chữ Chạy Flash Sale (Trên Cùng)</label>
+                        <input type="text" id="adminTickerText" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
                     </div>
-                    <button onclick="saveHeroSettings()" class="bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs px-6 py-2.5 rounded-xl">Lưu Tạm Hero</button>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Tiêu Đề Phụ (Subtitle Tag)</label>
+                        <input type="text" id="adminHeroSubTitle" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Tiêu Đề Chính Hero</label>
+                        <input type="text" id="adminHeroTitle" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Mô Tả Ngắn (Caption)</label>
+                        <textarea id="adminHeroCaption" rows="3" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Giá Cũ (Niêm yết)</label>
+                            <input type="text" id="adminHeroOldPrice" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Giá Ưu Đãi (Khuyến mãi)</label>
+                            <input type="text" id="adminHeroNewPrice" class="w-full bg-slate-900 border border-slate-700 text-pink-400 font-bold rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Badge Ưu Đãi</label>
+                            <input type="text" id="adminHeroBadge" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5">Link Ảnh Banner Sản Phẩm / Spa (URL)</label>
+                        <input type="url" id="adminHeroImg" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                    </div>
+
+                    <div class="flex justify-end pt-3">
+                        <button onclick="saveHeroSettings()" class="bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs px-6 py-2.5 rounded-xl shadow-md transition flex items-center gap-2">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <span>Lưu Tạm Thiết Lập Hero</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <!-- TAB 3: DỊCH VỤ -->
+            <!-- TAB 3: QUẢN LÝ DỊCH VỤ -->
             <div id="tabContent-services" class="admin-tab-pane hidden space-y-4">
+                <div class="flex items-center justify-between bg-slate-800/90 p-4 rounded-2xl border border-slate-700">
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Danh Sách Dịch Vụ Spa Đang Hiển Thị</h4>
+                        <p class="text-xs text-slate-400">Thêm mới, sửa giá, sửa ảnh hoặc xóa dịch vụ ngoài web</p>
+                    </div>
+                    <button onclick="openServiceModal()" class="bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs px-4 py-2 rounded-xl flex items-center gap-1.5 shadow transition">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Thêm Dịch Vụ Mới</span>
+                    </button>
+                </div>
+
                 <div id="adminServicesContainer" class="space-y-3"></div>
             </div>
 
-            <!-- TAB 7: ĐỒNG BỘ GITHUB API (QUAN TRỌNG NHẤT) -->
+            <!-- TAB 4: QUẢN LÝ BIO LINKS -->
+            <div id="tabContent-biolinks" class="admin-tab-pane hidden space-y-4">
+                <div class="bg-slate-800/90 p-5 rounded-2xl border border-slate-700 space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-700 pb-3">
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Quản Lý Danh Sách Bio Links</h4>
+                            <p class="text-xs text-slate-400">Nút điều hướng nhanh kiểu Linktree</p>
+                        </div>
+                        <button onclick="addBioLinkItem()" class="bg-slate-700 hover:bg-slate-600 text-white text-xs font-semibold px-3 py-1.5 rounded-xl flex items-center gap-1 transition">
+                            <i class="fa-solid fa-plus"></i> Thêm Nút Bio
+                        </button>
+                    </div>
+
+                    <div id="adminBioLinksContainer" class="space-y-3"></div>
+
+                    <div class="flex justify-end pt-3">
+                        <button onclick="saveBioLinks()" class="bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs px-6 py-2.5 rounded-xl shadow-md transition flex items-center gap-2">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <span>Lưu Danh Sách Bio Links</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 5: LEADS CRM -->
+            <div id="tabContent-leads" class="admin-tab-pane hidden space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-800/90 p-4 rounded-2xl border border-slate-700">
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Danh Sách Khách Hàng Để Lại Thông Tin</h4>
+                        <p class="text-xs text-slate-400">Dữ liệu tự động lưu khi khách bấm gửi nhận Voucher 500K</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="exportLeadsCSV()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-1.5 shadow transition">
+                            <i class="fa-solid fa-file-excel"></i>
+                            <span>Xuất File Excel CSV</span>
+                        </button>
+                        <button onclick="clearAllLeads()" class="bg-slate-700 hover:bg-rose-800 text-slate-300 hover:text-white text-xs px-3 py-2 rounded-xl transition">
+                            Xóa Hết
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/70 border border-slate-700 rounded-2xl overflow-hidden shadow-xl">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-slate-900/80 text-slate-400 uppercase text-[10px] border-b border-slate-700">
+                                <tr>
+                                    <th class="py-3 px-3.5">Thời Gian</th>
+                                    <th class="py-3 px-3.5">Họ Tên</th>
+                                    <th class="py-3 px-3.5">SĐT Zalo</th>
+                                    <th class="py-3 px-3.5">Dịch Vụ Quan Tâm</th>
+                                    <th class="py-3 px-3.5">Trạng Thái</th>
+                                    <th class="py-3 px-3.5 text-right">Thao Tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminLeadsTable" class="divide-y divide-slate-700/60 text-slate-300"></tbody>
+                        </table>
+                    </div>
+                    <div id="noLeadsNotice" class="p-8 text-center text-slate-500 text-xs hidden">
+                        Chưa có khách hàng nào điền form đăng ký.
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 6: ĐỔI MẬT KHẨU ADMIN -->
+            <div id="tabContent-security" class="admin-tab-pane hidden space-y-6">
+                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-xl max-w-lg space-y-4">
+                    <h4 class="text-sm font-bold text-white flex items-center gap-2 text-pink-400">
+                        <i class="fa-solid fa-shield-halved"></i> Đổi Mật Khẩu Quản Trị Viên
+                    </h4>
+                    <p class="text-xs text-slate-400">Mật khẩu dùng để truy cập vào đường dẫn bảo mật <code class="text-pink-400">#/admin</code>.</p>
+
+                    <form onsubmit="handlePasswordChange(event)" class="space-y-3 pt-2">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Mật Khẩu Hiện Tại</label>
+                            <input type="password" id="oldPasswordInput" required class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Mật Khẩu Mới</label>
+                            <input type="password" id="newPasswordInput" required minlength="6" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Nhập Lại Mật Khẩu Mới</label>
+                            <input type="password" id="confirmNewPasswordInput" required minlength="6" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3.5 py-2.5 text-xs focus:border-brand-500 outline-none">
+                        </div>
+
+                        <button type="submit" class="bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs px-6 py-2.5 rounded-xl shadow-md mt-2 transition">
+                            Lưu Mật Khẩu Mới
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- TAB 7: ĐỒNG BỘ GITHUB API (ĐÃ TÍCH HỢP CHUẨN) -->
             <div id="tabContent-github" class="admin-tab-pane hidden space-y-6">
                 <div class="bg-slate-800/95 border border-emerald-500/40 rounded-2xl p-5 sm:p-6 shadow-2xl space-y-5">
                     <div class="border-b border-slate-700 pb-3">
@@ -404,28 +952,81 @@
         </div>
     </div>
 
-    <!-- SCRIPT ENGINE -->
+    <!-- SERVICE EDIT / ADD MODAL DIALOG -->
+    <div id="serviceEditModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-lg rounded-3xl p-5 text-slate-200 shadow-2xl max-h-[92vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4 pb-2 border-b border-slate-800">
+                <h3 id="serviceModalTitle" class="font-bold text-base text-white">Thêm Dịch Vụ Mới</h3>
+                <button onclick="closeServiceModal()" class="text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <form onsubmit="handleSaveService(event)" class="space-y-3 text-xs">
+                <input type="hidden" id="serviceFormId">
+
+                <div>
+                    <label class="block font-semibold text-slate-300 mb-1">Tên Dịch Vụ Spa</label>
+                    <input type="text" id="serviceFormTitle" required placeholder="Ví dụ: Phun Môi Collagen Nano Pha Lê" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-white outline-none focus:border-brand-500">
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-slate-300 mb-1">Mô Tả Ngắn</label>
+                    <textarea id="serviceFormDesc" rows="2" required placeholder="Khử sạch nền thâm, phủ bóng tế bào gốc..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-white outline-none focus:border-brand-500"></textarea>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold text-slate-300 mb-1">Giá Cũ (Niêm yết)</label>
+                        <input type="text" id="serviceFormOldPrice" required placeholder="1.990.000đ" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-white outline-none focus:border-brand-500">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-300 mb-1">Giá Khuyến Mãi</label>
+                        <input type="text" id="serviceFormNewPrice" required placeholder="899.000đ" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-pink-400 font-bold outline-none focus:border-brand-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-slate-300 mb-1">Link Ảnh Minh Họa (URL)</label>
+                    <input type="url" id="serviceFormImg" required placeholder="https://images.unsplash.com/..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-white outline-none focus:border-brand-500">
+                </div>
+
+                <div class="pt-3 flex justify-end gap-2.5 border-t border-slate-800">
+                    <button type="button" onclick="closeServiceModal()" class="px-4 py-2 bg-slate-800 text-slate-300 rounded-xl hover:bg-slate-700">Hủy</button>
+                    <button type="submit" class="px-5 py-2 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl transition">Lưu Dịch Vụ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MAIN JAVASCRIPT LOGIC ENGINE -->
     <script id="mainLogicScript">
+        /* ========================================================================= */
+        /* APPLICATION STATE & PERSISTENCE ENGINE                                    */
+        /* ========================================================================= */
         const DEFAULT_STATE = {
+            // General & Contact
             zaloPhone: "0987654321",
             zaloMsg: "Chào Spa, tôi từ TikTok Ads muốn nhận Voucher giảm 50% và tư vấn riêng tư!",
             brandName: "SIMPLE BEAUTY SPA",
             tagline: "Phun Xăm Môi Mày & Làm Hồng Bi Nhũ",
             hotline: "0987.654.321",
             address: "123 Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh",
+
+            // Hero & Urgency
             tickerText: "🔥 FLASH SALE TIKTOK ADS: ƯU ĐÃI 50% PHUN MÔI MÀY & LÀM HỒNG BI NHŨ - CÒN 5 SUẤT CUỐI!",
             heroSubTitle: "CÔNG NGHỆ CHÂU ÂU KHỬ THÂM PHỦ BÓNG",
             heroTitle: "Phun Môi Collagen Pha Lê\nKhắc Mày & Làm Hồng Bi Nhũ",
-            heroCaption: "Bóc tách sạch nền môi thâm, điêu khắc sợi mày tự nhiên từng sợi và làm hồng bi nhũ hoa bảo mật phòng VIP 1:1.",
+            heroCaption: "Bóc tách sạch nền môi thâm, điêu khắc sợi mày tự nhiên từng sợi và làm hồng bi nhũ hoa bảo mật phòng VIP 1:1. Không sưng đau, chuẩn y khoa, giúp chị em tự tin tỏa sáng rạng ngời!",
             heroOldPrice: "1.990.000đ",
             heroNewPrice: "899.000đ",
             heroBadge: "ƯU ĐÃI 50% TIKTOK",
             heroImg: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80",
+
+            // 3 Core Services
             services: [
                 {
                     id: "svc-1",
                     title: "Phun Môi Collagen Pha Lê Khử Thâm",
-                    desc: "Bóc sạch melanin thâm xỉn lâu năm, căng mọng suốt 3-5 năm.",
+                    desc: "Bóc sạch melanin thâm xỉn lâu năm, cấy hạt mực hữu cơ thảo dược giúp môi hồng hào tự nhiên, căng mọng suốt 3-5 năm.",
                     oldPrice: "1.990.000đ",
                     newPrice: "899.000đ",
                     img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80"
@@ -433,7 +1034,7 @@
                 {
                     id: "svc-2",
                     title: "Điêu Khắc Mày Hairstrokes 12D",
-                    desc: "Từng sợi mày điêu khắc mềm mại, tiệp 99% vào lông mày thật.",
+                    desc: "Từng sợi mày được điêu khắc mềm mại, tiệp 99% vào lông mày thật, thiết kế dáng mày theo tỷ lệ vàng khuôn mặt và phong thủy phát tài.",
                     oldPrice: "2.500.000đ",
                     newPrice: "1.190.000đ",
                     img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80"
@@ -441,55 +1042,159 @@
                 {
                     id: "svc-3",
                     title: "Làm Hồng Bi Nhũ Hoa Laser Bio-Pink",
-                    desc: "Phòng VIP 1:1 kín đáo do Bác sĩ nữ thực hiện, bảo mật danh tính.",
+                    desc: "Công nghệ ánh sáng laser bóc tách sắc tố thâm vùng kín và nhũ hoa. Thực hiện tại phòng VIP 1:1 kín đáo bởi Bác sĩ nữ, bảo mật danh tính tuyệt đối.",
                     oldPrice: "3.500.000đ",
                     newPrice: "1.390.000đ",
                     img: "https://images.unsplash.com/photo-1608248597266-c89050df2386?auto=format&fit=crop&w=600&q=80"
                 }
             ],
+
+            // Bio Links
             bioLinks: [
                 { title: "💬 Nhắn Zalo Nhận Mã Khuyến Mãi 50%", url: "zalo", highlight: true },
-                { title: "🎁 Xem Bảng Giá Mật & Ảnh Môi Đã Bong", url: "#services", highlight: false }
+                { title: "🎁 Xem Bảng Giá Mật & Ảnh Môi Đã Bong", url: "#services", highlight: false },
+                { title: "🔒 Đặt Lịch Làm Hồng Bi Nhũ (Bác Sĩ Nữ Phòng VIP)", url: "zalo", highlight: true },
+                { title: "⭐ Đánh Giá Từ Khách Hàng Thực Tế", url: "#reviews", highlight: false },
+                { title: "📞 Gọi Hotline Bác Sĩ Hỗ Trợ 24/7", url: "tel:0987654321", highlight: false }
             ],
+
+            // Customer Reviews
+            reviews: [
+                {
+                    name: "Nguyễn Hồng Nhung",
+                    role: "Khách xem từ TikTok",
+                    content: "Mình thấy video trên TikTok nên nhắn Zalo tư vấn thử. Bạn nhân viên và Bác sĩ hỗ trợ rất nhiệt tình, làm môi xong không hề sưng, sau 1 tuần môi hồng tự nhiên cưng xỉu luôn!",
+                    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80"
+                },
+                {
+                    name: "Trần Thị Mai",
+                    role: "Khách hàng thân thiết",
+                    content: "Dịch vụ làm hồng bi nhũ ở đây cực kỳ kín đáo và bảo mật, Bác sĩ nữ làm rất nhẹ nhàng êm ái. Nhắn qua Zalo được nhận voucher giảm 50% hời quá trời.",
+                    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+                },
+                {
+                    name: "Lê Phương Thảo",
+                    role: "Khách làm điêu khắc mày",
+                    content: "Điêu khắc mày Hairstrokes sợi tơ mảnh tự nhiên dã man. Đi làm đồng nghiệp ai cũng khen không nhận ra là điêu khắc luôn á. 10/10 điểm!",
+                    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80"
+                }
+            ],
+
+            // Security
             adminPass: "admin123"
         };
 
         let appState = JSON.parse(localStorage.getItem('tiktok_spa_pink_state')) || DEFAULT_STATE;
+        let leadsState = JSON.parse(localStorage.getItem('tiktok_spa_leads_state')) || [
+            {
+                id: "lead-1",
+                name: "Chị Minh Thư",
+                phone: "0968123456",
+                service: "Phun Môi Collagen Nano Khử Thâm Phủ Bóng",
+                date: "2026-09-19 19:30",
+                status: "Đã Tư Vấn"
+            },
+            {
+                id: "lead-2",
+                name: "Chị Cẩm Tiên",
+                phone: "0912987654",
+                service: "Trẻ Hóa Làm Hồng Bi Nhũ Hoa Laser Bio-Pink",
+                date: "2026-09-19 20:10",
+                status: "Mới"
+            }
+        ];
+
         let isAdminAuthenticated = sessionStorage.getItem('admin_pink_spa_session') === 'true';
 
         function saveState() {
             localStorage.setItem('tiktok_spa_pink_state', JSON.stringify(appState));
         }
 
+        function saveLeads() {
+            localStorage.setItem('tiktok_spa_leads_state', JSON.stringify(leadsState));
+        }
+
         function getZaloUrl(customMsg = "") {
             const raw = (appState.zaloPhone || "").trim();
             const phoneDigits = raw.replace(/\D/g, "");
-            const msg = encodeURIComponent(customMsg || appState.zaloMsg || "Chào Spa");
+            const msg = encodeURIComponent(customMsg || appState.zaloMsg || "Chào Spa, tư vấn ưu đãi giúp tôi");
             return `https://zalo.me/${phoneDigits}?text=${msg}`;
         }
 
         function showToast(msg, title = "THÔNG BÁO", isError = false) {
             const toast = document.getElementById('toastBox');
-            document.getElementById('toastTitle').innerText = title;
-            document.getElementById('toastMessage').innerText = msg;
+            const titleEl = document.getElementById('toastTitle');
+            const msgEl = document.getElementById('toastMessage');
+            const iconEl = document.getElementById('toastIcon');
+
+            titleEl.innerText = title;
+            msgEl.innerText = msg;
+
+            if (isError) {
+                iconEl.className = "w-8 h-8 rounded-full flex items-center justify-center bg-rose-500 text-white font-bold shrink-0 text-sm";
+                iconEl.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+            } else {
+                iconEl.className = "w-8 h-8 rounded-full flex items-center justify-center bg-brand-500 text-white font-bold shrink-0 text-sm";
+                iconEl.innerHTML = '<i class="fa-solid fa-check"></i>';
+            }
+
             toast.classList.remove('-translate-y-24', 'opacity-0');
             toast.classList.add('translate-y-0', 'opacity-100');
+
             setTimeout(() => {
                 toast.classList.add('-translate-y-24', 'opacity-0');
                 toast.classList.remove('translate-y-0', 'opacity-100');
-            }, 4000);
+            }, 3500);
         }
 
+        function showCustomConfirm(message, onConfirm) {
+            const modal = document.getElementById('confirmDialogModal');
+            const msgEl = document.getElementById('confirmDialogText');
+            const okBtn = document.getElementById('confirmOkButton');
+            const cancelBtn = document.getElementById('confirmCancelButton');
+
+            msgEl.innerText = message;
+            modal.classList.remove('hidden');
+
+            const cleanup = () => {
+                modal.classList.add('hidden');
+                okBtn.onclick = null;
+                cancelBtn.onclick = null;
+            };
+
+            okBtn.onclick = () => {
+                cleanup();
+                onConfirm();
+            };
+            cancelBtn.onclick = cleanup;
+        }
+
+        /* ========================================================================= */
+        /* RENDER ENGINE: PUBLIC CLIENT LANDING PAGE                                 */
+        /* ========================================================================= */
         function renderPublicPage() {
             const zaloUrl = getZaloUrl();
+
             document.getElementById('brandNameDisplay').innerText = appState.brandName;
             document.getElementById('brandTaglineDisplay').innerText = appState.tagline;
+            document.getElementById('brandLogoInitial').innerText = appState.brandName.substring(0, 2).toUpperCase();
+            document.getElementById('tickerDisplay').innerText = appState.tickerText;
+
+            document.getElementById('heroSubTitleDisplay').innerText = appState.heroSubTitle;
             document.getElementById('heroTitleDisplay').innerHTML = (appState.heroTitle || "").replace(/\n/g, '<br>');
+            document.getElementById('heroCaptionDisplay').innerText = appState.heroCaption;
             document.getElementById('heroOldPriceDisplay').innerText = appState.heroOldPrice;
             document.getElementById('heroNewPriceDisplay').innerText = appState.heroNewPrice;
+            document.getElementById('heroBadgeDisplay').innerHTML = `<i class="fa-solid fa-bolt mr-1"></i> ${appState.heroBadge}`;
+            document.getElementById('heroImgDisplay').src = appState.heroImg;
+
             document.getElementById('footerBrandName').innerText = appState.brandName;
+            document.getElementById('footerLogoInitial').innerText = appState.brandName.substring(0, 2).toUpperCase();
+            document.getElementById('footerDesc').innerText = `${appState.brandName} - ${appState.tagline}. Giải pháp làm đẹp chuẩn y khoa được đông đảo khách hàng TikTok tin dùng.`;
             document.getElementById('footerPhone').innerText = appState.hotline;
             document.getElementById('footerZaloNumber').innerText = appState.zaloPhone;
+            document.getElementById('footerAddress').innerText = appState.address;
+            document.getElementById('footerCopyName').innerText = appState.brandName;
 
             document.querySelectorAll('.zalo-link').forEach(el => {
                 el.href = zaloUrl;
@@ -497,28 +1202,119 @@
             });
 
             const servicesGrid = document.getElementById('servicesGrid');
-            servicesGrid.innerHTML = appState.services.map(s => `
-                <div class="bg-white rounded-2xl overflow-hidden border border-pink-100 shadow-sm p-4">
-                    <img src="${s.img}" class="w-full h-48 object-cover rounded-xl mb-3">
-                    <h4 class="font-bold text-base text-slate-900">${s.title}</h4>
-                    <p class="text-xs text-slate-500 mb-2">${s.desc}</p>
-                    <div class="flex justify-between items-center mt-3">
-                        <span class="text-brand-600 font-extrabold text-sm">${s.newPrice}</span>
-                        <a href="${zaloUrl}" target="_blank" class="bg-pink-50 text-brand-700 px-3 py-1.5 rounded-lg text-xs font-bold">Tư vấn Zalo</a>
+            servicesGrid.innerHTML = appState.services.map(s => {
+                const serviceZaloLink = getZaloUrl(`Chào Spa, tôi quan tâm dịch vụ: ${s.title} (${s.newPrice}). Bác sĩ tư vấn kín đáo giúp tôi!`);
+                return `
+                    <div class="bg-white rounded-2xl overflow-hidden border border-pink-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="relative overflow-hidden h-56">
+                            <img src="${s.img}" alt="${s.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/fce7f3/db2777?text=Spa+Service'">
+                            <span class="absolute top-3 right-3 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                                ${s.newPrice}
+                            </span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-lg mb-2 group-hover:text-brand-600 transition-colors leading-snug">${s.title}</h3>
+                                <p class="text-slate-500 text-xs sm:text-sm line-clamp-3 mb-4 leading-relaxed">${s.desc}</p>
+                            </div>
+                            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 line-through block font-medium">${s.oldPrice}</span>
+                                    <span class="text-base font-extrabold text-brand-600">${s.newPrice}</span>
+                                </div>
+                                <a href="${serviceZaloLink}" target="_blank" class="inline-flex items-center justify-center bg-pink-50 hover:bg-zalo hover:text-white text-brand-700 font-bold py-2.5 px-4 rounded-xl text-xs transition-all duration-300">
+                                    <i class="fa-solid fa-comment-dots mr-1.5"></i> Tư vấn Zalo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            const bioContainer = document.getElementById('bioLinksContainer');
+            bioContainer.innerHTML = appState.bioLinks.map(link => {
+                const isZalo = link.url === "zalo";
+                const href = isZalo ? zaloUrl : link.url;
+                const target = (isZalo || link.url.startsWith("http")) ? 'target="_blank"' : '';
+                const styleClass = link.highlight 
+                    ? 'bg-gradient-to-r from-brand-500 to-pink-500 text-white shadow-md' 
+                    : 'bg-white hover:bg-pink-50/70 text-slate-800 border border-slate-200/80 shadow-sm';
+                const textClass = link.highlight ? 'text-white' : 'text-slate-800 group-hover:text-brand-600';
+                const iconColor = link.highlight ? 'text-white' : 'text-slate-400 group-hover:text-brand-600';
+
+                return `
+                    <a href="${href}" ${target} class="w-full flex items-center justify-between p-4 rounded-xl ${styleClass} transition-all transform hover:-translate-y-0.5 group">
+                        <span class="font-bold text-xs sm:text-sm ${textClass} transition-colors">${link.title}</span>
+                        <i class="fa-solid fa-chevron-right text-xs ${iconColor} group-hover:translate-x-1 transition-all"></i>
+                    </a>
+                `;
+            }).join('');
+
+            const reviewsGrid = document.getElementById('reviewsGrid');
+            reviewsGrid.innerHTML = appState.reviews.map(r => `
+                <div class="bg-white p-6 rounded-2xl border border-pink-100 shadow-sm relative">
+                    <div class="flex items-center space-x-1 text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-xs sm:text-sm italic mb-4 leading-relaxed">"${r.content}"</p>
+                    <div class="flex items-center space-x-3 pt-3 border-t border-slate-100">
+                        <img src="${r.avatar}" class="w-10 h-10 rounded-full object-cover border border-pink-200" alt="${r.name}">
+                        <div>
+                            <h4 class="font-bold text-xs text-slate-900">${r.name}</h4>
+                            <span class="text-[10px] text-slate-400">${r.role}</span>
+                        </div>
                     </div>
                 </div>
             `).join('');
-
-            const bioContainer = document.getElementById('bioLinksContainer');
-            bioContainer.innerHTML = appState.bioLinks.map(link => `
-                <a href="${link.url === 'zalo' ? zaloUrl : link.url}" target="_blank" class="block p-4 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 hover:bg-pink-50">
-                    ${link.title}
-                </a>
-            `).join('');
         }
 
+        function handleLeadSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('leadName').value.trim();
+            const phone = document.getElementById('leadPhone').value.trim();
+            const service = document.getElementById('leadService').value;
+
+            if (!name || !phone) {
+                showToast('Vui lòng nhập họ tên và số điện thoại Zalo!', 'Lỗi nhập', true);
+                return;
+            }
+
+            const now = new Date();
+            const dateStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+
+            leadsState.unshift({
+                id: "lead-" + Date.now(),
+                name,
+                phone,
+                service,
+                date: dateStr,
+                status: "Mới"
+            });
+            saveLeads();
+
+            showToast('Đã lưu thông tin ưu đãi! Đang kết nối Zalo với Bác sĩ...', 'Thành Công');
+
+            const structuredMsg = `Xin chào ${appState.brandName}!\nTôi là: ${name} (SĐT Zalo: ${phone})\nTôi vừa đăng ký nhận Voucher 50% dịch vụ: ${service}.\nBác sĩ tư vấn kín đáo giúp tôi nhé!`;
+            const zaloRedirect = getZaloUrl(structuredMsg);
+
+            setTimeout(() => {
+                window.open(zaloRedirect, '_blank');
+            }, 800);
+
+            document.getElementById('leadName').value = '';
+            document.getElementById('leadPhone').value = '';
+        }
+
+        /* ========================================================================= */
+        /* ROUTING ENGINE (URL HASH: '' => Client | '#/admin' => Secret Portal)      */
+        /* ========================================================================= */
         function checkRoute() {
             const hash = window.location.hash.toLowerCase();
+
             if (hash === '#/admin' || hash === '#admin') {
                 document.getElementById('publicAppView').classList.add('hidden');
                 if (!isAdminAuthenticated) {
@@ -541,19 +1337,31 @@
 
         function handleAdminLogin(e) {
             e.preventDefault();
-            if (document.getElementById('adminPasswordInput').value === appState.adminPass) {
+            const entered = document.getElementById('adminPasswordInput').value;
+
+            if (entered === appState.adminPass) {
                 isAdminAuthenticated = true;
                 sessionStorage.setItem('admin_pink_spa_session', 'true');
+                document.getElementById('adminPasswordInput').value = '';
+                showToast('Đăng nhập Quản trị viên thành công!', 'Bảo Mật');
                 checkRoute();
             } else {
-                showToast('Mật khẩu không đúng!', 'Lỗi', true);
+                showToast('Mật khẩu quản trị không chính xác!', 'Sai Mật Khẩu', true);
             }
         }
 
         function handleAdminLogout() {
-            isAdminAuthenticated = false;
-            sessionStorage.removeItem('admin_pink_spa_session');
-            window.location.hash = '#/';
+            showCustomConfirm('Bạn có chắc chắn muốn đăng xuất khỏi trang quản trị?', () => {
+                isAdminAuthenticated = false;
+                sessionStorage.removeItem('admin_pink_spa_session');
+                window.location.hash = '#/';
+                showToast('Đã đăng xuất an toàn');
+            });
+        }
+
+        function togglePasswordVisibility(id) {
+            const input = document.getElementById(id);
+            input.type = input.type === 'password' ? 'text' : 'password';
         }
 
         function switchAdminTab(tabName) {
@@ -562,42 +1370,337 @@
                 b.classList.remove('border-brand-500', 'text-pink-400');
                 b.classList.add('border-transparent', 'text-slate-400');
             });
+
             const targetPane = document.getElementById(`tabContent-${tabName}`);
             const targetBtn = document.getElementById(`tabBtn-${tabName}`);
             if (targetPane) targetPane.classList.remove('hidden');
             if (targetBtn) {
                 targetBtn.classList.remove('border-transparent', 'text-slate-400');
-                targetBtn.classList.add('border-brand-500', 'text-pink-400');
+                if (tabName === 'github') {
+                    targetBtn.classList.add('border-emerald-500', 'text-emerald-400');
+                } else {
+                    targetBtn.classList.add('border-brand-500', 'text-pink-400');
+                }
             }
         }
 
+        /* ========================================================================= */
+        /* ADMIN DASHBOARD CRUD & DATA CONTROLS                                      */
+        /* ========================================================================= */
         function renderAdminDashboard() {
             document.getElementById('adminZaloPhone').value = appState.zaloPhone;
+            document.getElementById('adminZaloMsg').value = appState.zaloMsg;
             document.getElementById('adminBrandName').value = appState.brandName;
+            document.getElementById('adminTagline').value = appState.tagline;
+            document.getElementById('adminHotline').value = appState.hotline;
+            document.getElementById('adminAddress').value = appState.address;
+            document.getElementById('adminRealZaloLink').innerText = getZaloUrl();
+
+            document.getElementById('adminZaloPhone').oninput = function() {
+                const p = this.value.replace(/\D/g, "");
+                document.getElementById('adminRealZaloLink').innerText = `https://zalo.me/${p}`;
+            };
+
+            document.getElementById('adminTickerText').value = appState.tickerText;
+            document.getElementById('adminHeroSubTitle').value = appState.heroSubTitle;
+            document.getElementById('adminHeroTitle').value = appState.heroTitle;
+            document.getElementById('adminHeroCaption').value = appState.heroCaption;
             document.getElementById('adminHeroOldPrice').value = appState.heroOldPrice;
             document.getElementById('adminHeroNewPrice').value = appState.heroNewPrice;
+            document.getElementById('adminHeroBadge').value = appState.heroBadge;
+            document.getElementById('adminHeroImg').value = appState.heroImg;
 
-            // Load saved GitHub credentials
+            renderAdminServices();
+            renderAdminBioLinks();
+            renderAdminLeads();
+
+            // Load GitHub Configuration
             const ghConfig = JSON.parse(localStorage.getItem('admin_github_api_config')) || {};
-            document.getElementById('ghOwner').value = ghConfig.owner || '';
-            document.getElementById('ghRepo').value = ghConfig.repo || '';
-            document.getElementById('ghBranch').value = ghConfig.branch || 'main';
-            document.getElementById('ghPath').value = ghConfig.path || 'index.html';
-            document.getElementById('ghToken').value = ghConfig.token || '';
+            if (document.getElementById('ghOwner')) document.getElementById('ghOwner').value = ghConfig.owner || '';
+            if (document.getElementById('ghRepo')) document.getElementById('ghRepo').value = ghConfig.repo || '';
+            if (document.getElementById('ghBranch')) document.getElementById('ghBranch').value = ghConfig.branch || 'main';
+            if (document.getElementById('ghPath')) document.getElementById('ghPath').value = ghConfig.path || 'index.html';
+            if (document.getElementById('ghToken')) document.getElementById('ghToken').value = ghConfig.token || '';
         }
 
         function saveGeneralSettings() {
             appState.zaloPhone = document.getElementById('adminZaloPhone').value.trim();
+            appState.zaloMsg = document.getElementById('adminZaloMsg').value.trim();
             appState.brandName = document.getElementById('adminBrandName').value.trim();
+            appState.tagline = document.getElementById('adminTagline').value.trim();
+            appState.hotline = document.getElementById('adminHotline').value.trim();
+            appState.address = document.getElementById('adminAddress').value.trim();
+
             saveState();
-            showToast('Đã lưu cấu hình Spa tạm thời!');
+            showToast('Đã lưu cấu hình Zalo tạm thời! Bạn hãy chuyển sang Tab 7 để Đẩy lên GitHub.');
         }
 
         function saveHeroSettings() {
+            appState.tickerText = document.getElementById('adminTickerText').value.trim();
+            appState.heroSubTitle = document.getElementById('adminHeroSubTitle').value.trim();
+            appState.heroTitle = document.getElementById('adminHeroTitle').value.trim();
+            appState.heroCaption = document.getElementById('adminHeroCaption').value.trim();
             appState.heroOldPrice = document.getElementById('adminHeroOldPrice').value.trim();
             appState.heroNewPrice = document.getElementById('adminHeroNewPrice').value.trim();
+            appState.heroBadge = document.getElementById('adminHeroBadge').value.trim();
+            appState.heroImg = document.getElementById('adminHeroImg').value.trim();
+
             saveState();
-            showToast('Đã lưu cấu hình Hero tạm thời!');
+            showToast('Đã lưu thiết lập Hero Banner tạm thời!');
+        }
+
+        function renderAdminServices() {
+            const container = document.getElementById('adminServicesContainer');
+            container.innerHTML = appState.services.map((s) => `
+                <div class="bg-slate-800 p-3.5 rounded-2xl border border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                        <img src="${s.img}" class="w-14 h-14 rounded-xl object-cover border border-slate-600 shrink-0" onerror="this.src='https://placehold.co/100x100/fce7f3/db2777?text=Spa'">
+                        <div>
+                            <span class="font-bold text-xs text-white">${s.title}</span>
+                            <p class="text-[11px] text-slate-400 line-clamp-1">${s.desc}</p>
+                            <div class="text-[11px] mt-1">
+                                <span class="line-through text-slate-500 mr-2">${s.oldPrice}</span>
+                                <span class="text-pink-400 font-bold">${s.newPrice}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 shrink-0 self-end sm:self-center">
+                        <button onclick="openServiceModal('${s.id}')" class="bg-slate-700 hover:bg-slate-600 text-xs px-3 py-1.5 rounded-xl text-slate-200 transition">
+                            <i class="fa-solid fa-pen mr-1"></i> Sửa
+                        </button>
+                        <button onclick="deleteService('${s.id}')" class="bg-rose-900/40 hover:bg-rose-800 text-xs px-3 py-1.5 rounded-xl text-rose-300 transition">
+                            <i class="fa-solid fa-trash mr-1"></i> Xóa
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openServiceModal(id = null) {
+            const modal = document.getElementById('serviceEditModal');
+            const titleEl = document.getElementById('serviceModalTitle');
+
+            if (id) {
+                const s = appState.services.find(item => item.id === id);
+                if (!s) return;
+                titleEl.innerText = "Chỉnh Sửa Dịch Vụ";
+                document.getElementById('serviceFormId').value = s.id;
+                document.getElementById('serviceFormTitle').value = s.title;
+                document.getElementById('serviceFormDesc').value = s.desc;
+                document.getElementById('serviceFormOldPrice').value = s.oldPrice;
+                document.getElementById('serviceFormNewPrice').value = s.newPrice;
+                document.getElementById('serviceFormImg').value = s.img;
+            } else {
+                titleEl.innerText = "Thêm Dịch Vụ Mới";
+                document.getElementById('serviceFormId').value = "";
+                document.getElementById('serviceFormTitle').value = "";
+                document.getElementById('serviceFormDesc').value = "";
+                document.getElementById('serviceFormOldPrice').value = "1.990.000đ";
+                document.getElementById('serviceFormNewPrice').value = "899.000đ";
+                document.getElementById('serviceFormImg').value = "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80";
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeServiceModal() {
+            document.getElementById('serviceEditModal').classList.add('hidden');
+        }
+
+        function handleSaveService(e) {
+            e.preventDefault();
+            const id = document.getElementById('serviceFormId').value;
+            const title = document.getElementById('serviceFormTitle').value.trim();
+            const desc = document.getElementById('serviceFormDesc').value.trim();
+            const oldPrice = document.getElementById('serviceFormOldPrice').value.trim();
+            const newPrice = document.getElementById('serviceFormNewPrice').value.trim();
+            const img = document.getElementById('serviceFormImg').value.trim();
+
+            if (id) {
+                const idx = appState.services.findIndex(s => s.id === id);
+                if (idx !== -1) {
+                    appState.services[idx] = { ...appState.services[idx], title, desc, oldPrice, newPrice, img };
+                    showToast('Đã cập nhật dịch vụ!');
+                }
+            } else {
+                appState.services.push({
+                    id: "svc-" + Date.now(),
+                    title, desc, oldPrice, newPrice, img
+                });
+                showToast('Đã thêm dịch vụ mới!');
+            }
+
+            saveState();
+            closeServiceModal();
+            renderAdminServices();
+        }
+
+        function deleteService(id) {
+            showCustomConfirm('Bạn có chắc chắn muốn xóa dịch vụ này?', () => {
+                appState.services = appState.services.filter(s => s.id !== id);
+                saveState();
+                renderAdminServices();
+                showToast('Đã xóa dịch vụ');
+            });
+        }
+
+        function renderAdminBioLinks() {
+            const container = document.getElementById('adminBioLinksContainer');
+            container.innerHTML = appState.bioLinks.map((link, idx) => `
+                <div class="p-3 bg-slate-900 rounded-xl border border-slate-700 flex flex-col sm:flex-row items-center gap-2">
+                    <input type="text" value="${link.title}" onchange="updateBioField(${idx}, 'title', this.value)" class="w-full sm:w-1/2 bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none" placeholder="Tiêu đề nút">
+                    <input type="text" value="${link.url}" onchange="updateBioField(${idx}, 'url', this.value)" class="w-full sm:w-1/3 bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white outline-none" placeholder="zalo, #services hoặc URL">
+                    <div class="flex items-center gap-2 shrink-0 self-end sm:self-center">
+                        <label class="text-[11px] text-slate-400 flex items-center gap-1">
+                            <input type="checkbox" ${link.highlight ? 'checked' : ''} onchange="updateBioField(${idx}, 'highlight', this.checked)"> Nổi bật
+                        </label>
+                        <button onclick="deleteBioLink(${idx})" class="text-rose-400 hover:text-rose-300 p-1"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateBioField(index, field, value) {
+            appState.bioLinks[index][field] = value;
+        }
+
+        function deleteBioLink(index) {
+            appState.bioLinks.splice(index, 1);
+            renderAdminBioLinks();
+        }
+
+        function addBioLinkItem() {
+            appState.bioLinks.push({
+                title: "Dịch Vụ Ưu Đãi Mới",
+                url: "zalo",
+                highlight: false
+            });
+            renderAdminBioLinks();
+        }
+
+        function saveBioLinks() {
+            saveState();
+            showToast('Đã lưu danh sách Bio Links!');
+        }
+
+        function renderAdminLeads() {
+            const tbody = document.getElementById('adminLeadsTable');
+            const counter = document.getElementById('leadsCounterBadge');
+            const empty = document.getElementById('noLeadsNotice');
+
+            counter.innerText = leadsState.length;
+
+            if (leadsState.length === 0) {
+                tbody.innerHTML = '';
+                empty.classList.remove('hidden');
+                return;
+            }
+
+            empty.classList.add('hidden');
+            tbody.innerHTML = leadsState.map(lead => {
+                const directZalo = `https://zalo.me/${lead.phone.replace(/\D/g, "")}`;
+                return `
+                    <tr class="hover:bg-slate-800/60 transition">
+                        <td class="py-2.5 px-3.5 text-slate-400 whitespace-nowrap">${lead.date}</td>
+                        <td class="py-2.5 px-3.5 font-bold text-white">${lead.name}</td>
+                        <td class="py-2.5 px-3.5 text-pink-400 font-mono font-bold">${lead.phone}</td>
+                        <td class="py-2.5 px-3.5 text-slate-300 text-[11px] max-w-[200px] truncate">${lead.service}</td>
+                        <td class="py-2.5 px-3.5">
+                            <select onchange="updateLeadStatus('${lead.id}', this.value)" class="bg-slate-900 border border-slate-700 text-xs text-slate-300 rounded-lg px-2 py-1 outline-none">
+                                <option value="Mới" ${lead.status === 'Mới' ? 'selected' : ''}>Mới</option>
+                                <option value="Đang Tư Vấn" ${lead.status === 'Đang Tư Vấn' ? 'selected' : ''}>Đang Tư Vấn</option>
+                                <option value="Đã Chốt Lịch" ${lead.status === 'Đã Chốt Lịch' ? 'selected' : ''}>Đã Chốt Lịch</option>
+                                <option value="Hủy" ${lead.status === 'Hủy' ? 'selected' : ''}>Hủy</option>
+                            </select>
+                        </td>
+                        <td class="py-2.5 px-3.5 text-right whitespace-nowrap">
+                            <a href="${directZalo}" target="_blank" class="inline-flex items-center gap-1 bg-zalo hover:bg-zalo-hover text-white px-2.5 py-1 rounded-lg text-[11px] font-bold mr-1">
+                                <i class="fa-solid fa-comment-dots"></i> Chat Zalo
+                            </a>
+                            <button onclick="deleteLead('${lead.id}')" class="text-rose-400 hover:text-rose-300 p-1.5" title="Xóa">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function updateLeadStatus(id, newStatus) {
+            const lead = leadsState.find(l => l.id === id);
+            if (lead) {
+                lead.status = newStatus;
+                saveLeads();
+                showToast('Đã cập nhật trạng thái khách hàng');
+            }
+        }
+
+        function deleteLead(id) {
+            showCustomConfirm('Bạn có chắc muốn xóa khách hàng này?', () => {
+                leadsState = leadsState.filter(l => l.id !== id);
+                saveLeads();
+                renderAdminLeads();
+                showToast('Đã xóa thông tin khách hàng');
+            });
+        }
+
+        function clearAllLeads() {
+            if (leadsState.length === 0) return;
+            showCustomConfirm('Bạn có chắc muốn xóa sạch toàn bộ danh sách khách hàng?', () => {
+                leadsState = [];
+                saveLeads();
+                renderAdminLeads();
+                showToast('Đã xóa hết dữ liệu khách hàng');
+            });
+        }
+
+        function exportLeadsCSV() {
+            if (leadsState.length === 0) {
+                showToast('Chưa có danh sách khách hàng để xuất!', 'Thông Báo', true);
+                return;
+            }
+
+            let csv = "\uFEFF";
+            csv += "Thời Gian,Họ Tên,Số Điện Thoại Zalo,Dịch Vụ Quan Tâm,Trạng Thái\r\n";
+
+            leadsState.forEach(l => {
+                csv += `"${l.date}","${(l.name||'').replace(/"/g,'""')}","${l.phone}","${(l.service||'').replace(/"/g,'""')}","${l.status}"\r\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = `danh_sach_khach_zalo_spa_${Date.now()}.csv`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast('Đã xuất file Excel CSV thành công!');
+        }
+
+        function handlePasswordChange(e) {
+            e.preventDefault();
+            const oldP = document.getElementById('oldPasswordInput').value;
+            const newP = document.getElementById('newPasswordInput').value;
+            const confirmP = document.getElementById('confirmNewPasswordInput').value;
+
+            if (oldP !== appState.adminPass) {
+                showToast('Mật khẩu hiện tại không đúng!', 'Lỗi', true);
+                return;
+            }
+            if (newP !== confirmP) {
+                showToast('Mật khẩu mới và xác nhận mật khẩu không khớp!', 'Lỗi', true);
+                return;
+            }
+
+            appState.adminPass = newP;
+            saveState();
+            showToast('Đã đổi mật khẩu quản trị viên thành công!');
+
+            document.getElementById('oldPasswordInput').value = '';
+            document.getElementById('newPasswordInput').value = '';
+            document.getElementById('confirmNewPasswordInput').value = '';
         }
 
         /* ========================================================================= */
@@ -621,7 +1724,6 @@
             showToast('Đã lưu thông tin cấu hình GitHub an toàn trên trình duyệt này!');
         }
 
-        // Chuyển ký tự UTF-8 Tiếng Việt sang Base64 chuẩn cho GitHub API
         function utf8_to_b64(str) {
             return window.btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
                 return String.fromCharCode(parseInt(p1, 16));
@@ -639,7 +1741,7 @@
             btn.disabled = true;
 
             try {
-                // 1. Lấy mã SHA của file index.html hiện tại trên GitHub
+                // 1. Lấy mã SHA của file hiện tại trên GitHub
                 const getUrl = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${config.path}?ref=${config.branch}`;
                 const getRes = await fetch(getUrl, {
                     headers: {
@@ -649,7 +1751,7 @@
                 });
 
                 if (!getRes.ok) {
-                    throw new Error(`Không tìm thấy file trên GitHub (Lỗi: ${getRes.status}). Kiểm tra lại Username và Tên Repo!`);
+                    throw new Error(`Không tìm thấy file trên GitHub (Mã lỗi: ${getRes.status}). Hãy kiểm tra lại Username và Tên Repo!`);
                 }
 
                 const fileInfo = await getRes.json();
@@ -665,7 +1767,7 @@
 
                 scriptEl.textContent = updatedScript;
                 
-                // Đảm bảo ẩn admin trước khi render ra HTML
+                // Chuyển view về public trước khi chụp HTML
                 document.getElementById('adminLoginView').classList.add('hidden');
                 document.getElementById('adminDashboardView').classList.add('hidden');
                 document.getElementById('publicAppView').classList.remove('hidden');
@@ -687,7 +1789,7 @@
                         'Accept': 'application/vnd.github.v3+json'
                     },
                     body: JSON.stringify({
-                        message: 'Cập nhật nội dung website từ Admin Dashboard',
+                        message: 'Cập nhật website từ Admin Dashboard',
                         content: utf8_to_b64(fullHtml),
                         sha: sha,
                         branch: config.branch
@@ -709,8 +1811,62 @@
             }
         }
 
+        /* ========================================================================= */
+        /* COUNTDOWN TIMER & FOMO POPUP CYCLING                                      */
+        /* ========================================================================= */
+        function initCountdown() {
+            let total = 3 * 3600 + 45 * 60 + 20;
+            setInterval(() => {
+                if (total > 0) total--;
+                else total = 4 * 3600;
+
+                const h = Math.floor(total / 3600);
+                const m = Math.floor((total % 3600) / 60);
+                const s = total % 60;
+
+                const elH = document.getElementById('timerHours');
+                const elM = document.getElementById('timerMinutes');
+                const elS = document.getElementById('timerSeconds');
+
+                if (elH) elH.innerText = String(h).padStart(2, '0');
+                if (elM) elM.innerText = String(m).padStart(2, '0');
+                if (elS) elS.innerText = String(s).padStart(2, '0');
+            }, 1000);
+        }
+
+        function initSocialProof() {
+            const fakeData = [
+                { name: "Chị Thảo Vy (093***12)", service: "Vừa nhận voucher giảm 50% Phun Môi", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" },
+                { name: "Chị Thu Thủy (090***67)", service: "Vừa đặt lịch làm hồng bi nhũ phòng VIP", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop&q=80" },
+                { name: "Chị Minh Thư (097***45)", service: "Vừa kết nối Zalo tư vấn điêu khắc mày", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&auto=format&fit=crop&q=80" }
+            ];
+
+            setInterval(() => {
+                const popup = document.getElementById('socialProofPopup');
+                const nameEl = document.getElementById('proofName');
+                const serviceEl = document.getElementById('proofService');
+                const imgEl = document.getElementById('proofImg');
+                if (!popup || !nameEl || window.location.hash.includes('admin')) return;
+
+                const item = fakeData[Math.floor(Math.random() * fakeData.length)];
+                nameEl.innerText = item.name;
+                serviceEl.innerText = item.service;
+                imgEl.src = item.avatar;
+
+                popup.classList.remove('-translate-x-full', 'opacity-0');
+                popup.classList.add('translate-x-0', 'opacity-100');
+
+                setTimeout(() => {
+                    popup.classList.add('-translate-x-full', 'opacity-0');
+                    popup.classList.remove('translate-x-0', 'opacity-100');
+                }, 4500);
+            }, 14000);
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             checkRoute();
+            initCountdown();
+            initSocialProof();
         });
     </script>
 </body>
